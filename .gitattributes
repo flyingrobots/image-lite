@@ -5,3 +5,4 @@ original/*.gif filter=lfs diff=lfs merge=lfs -text
 original/*.webp filter=lfs diff=lfs merge=lfs -text
 original/*.svg filter=lfs diff=lfs merge=lfs -text
 *.webp filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
