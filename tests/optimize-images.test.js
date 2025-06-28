@@ -200,11 +200,11 @@ describe('optimize-images.js', () => {
     expect(result.output.toLowerCase()).toMatch(/error/i);
     
     // Check for error log file creation (might be in working directory)
-    const errorLogPath = path.join(testDir, 'image-optimization-errors.log');
+    const errorLogPath = path.join(testDir, 'image-lite-errors.log');
     const errorLogExists = await fs.access(errorLogPath).then(() => true).catch(() => false);
     
     // Also check if it was created in current working directory
-    const cwdErrorLog = await fs.access('image-optimization-errors.log').then(() => true).catch(() => false);
+    const cwdErrorLog = await fs.access('image-lite-errors.log').then(() => true).catch(() => false);
     
     expect(errorLogExists || cwdErrorLog).toBe(true);
   });
@@ -342,7 +342,7 @@ describe('optimize-images.js', () => {
     };
     
     await fs.writeFile(
-      path.join(testDir, '.image-optimization-state.json'),
+      path.join(testDir, '.image-lite-state.json'),
       JSON.stringify(stateFile, null, 2)
     );
 
@@ -457,7 +457,7 @@ describe('optimize-images.js', () => {
     expect(outputFiles).not.toContain('corrupt.webp');
     
     // Error log should be created
-    const errorLogExists = await fs.access(path.join(testDir, 'image-optimization-errors.log'))
+    const errorLogExists = await fs.access(path.join(testDir, 'image-lite-errors.log'))
       .then(() => true)
       .catch(() => false);
     expect(errorLogExists).toBe(true);

@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="image-lite.webp" alt="image-lite logo" width="200" height="200">
+</div>
+
 # image-lite
 
 A high-performance batch image optimization tool built with Node.js and Sharp. Optimize thousands of images efficiently with support for modern formats (WebP, AVIF), automatic format conversion, and intelligent quality rules.
@@ -58,7 +62,7 @@ Options:
   --watch              Watch for file changes and process automatically
   --max-retries=N      Maximum retry attempts for failed images (default: 3)
   --retry-delay=MS     Delay between retries in milliseconds (default: 1000)
-  --error-log=PATH     Path to error log file (default: image-optimization-errors.log)
+  --error-log=PATH     Path to error log file (default: image-lite-errors.log)
   --help, -h           Show help message
 ```
 
@@ -195,10 +199,10 @@ console.log(metadata); // { width, height, format, size, ... }
 For processing entire directories:
 
 ```javascript
-const { ImageOptimizerApp } = require('image-lite');
+const { ImageLiteApp } = require('image-lite');
 
 async function optimizeImages() {
-  const app = new ImageOptimizerApp({
+  const app = new ImageLiteApp({
     config: {
       outputDir: 'dist/images',
       formats: ['webp', 'original'],

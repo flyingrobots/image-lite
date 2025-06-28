@@ -2,7 +2,7 @@ const fs = require('fs').promises;
 
 class ErrorLogger {
   constructor(options = {}) {
-    this.errorLog = options.errorLog || 'image-optimization-errors.log';
+    this.errorLog = options.errorLog || 'image-lite-errors.log';
     this.logger = options.logger || console;
     this.errors = [];
   }

@@ -3,11 +3,11 @@ const path = require('path');
 const fs = require('fs').promises;
 
 // Export the main app for batch processing
-const ImageOptimizerApp = require('./app');
+const ImageLiteApp = require('./app');
 
 // Export core modules for advanced usage
 const ImageProcessor = require('./core/image-processor');
-const ImageOptimizer = require('./core/image-optimizer');
+const ImageLite = require('./core/image-lite');
 
 /**
  * Optimize a single image file
@@ -126,9 +126,9 @@ module.exports = {
   getImageMetadata,
   
   // Batch processing
-  ImageOptimizerApp,
+  ImageLiteApp,
   
   // Core modules for advanced usage
   ImageProcessor,
-  ImageOptimizer
+  ImageLite
 };

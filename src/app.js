@@ -1,7 +1,7 @@
 const fs = require('fs').promises;
 const path = require('path');
 
-class ImageOptimizerApp {
+class ImageLiteApp {
   constructor({
     config,
     progressManager,
@@ -267,4 +267,4 @@ class ImageOptimizerApp {
   }
 }
 
-module.exports = ImageOptimizerApp;
+module.exports = ImageLiteApp;

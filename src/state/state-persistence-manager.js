@@ -2,7 +2,7 @@ const fs = require('fs').promises;
 
 class StatePersistenceManager {
   constructor(options = {}) {
-    this.stateFile = options.stateFile || '.image-optimization-state.json';
+    this.stateFile = options.stateFile || '.image-lite-state.json';
     this.logger = options.logger || console;
   }
 

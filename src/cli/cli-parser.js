@@ -14,7 +14,7 @@ class CliParser {
       watchMode: this.hasFlag('--watch'),
       maxRetries: this.getIntValue('--max-retries=', 3),
       retryDelay: this.getIntValue('--retry-delay=', 1000),
-      errorLog: this.getStringValue('--error-log=', 'image-optimization-errors.log')
+      errorLog: this.getStringValue('--error-log=', 'image-lite-errors.log')
     };
 
     return options;
@@ -50,7 +50,7 @@ Options:
   --watch              Watch for file changes and process automatically
   --max-retries=N      Maximum retry attempts for failed images (default: 3)
   --retry-delay=MS     Delay between retries in milliseconds (default: 1000)
-  --error-log=PATH     Path to error log file (default: image-optimization-errors.log)
+  --error-log=PATH     Path to error log file (default: image-lite-errors.log)
   --help, -h           Show this help message
 
 Examples:
@@ -64,10 +64,10 @@ Examples:
   node src/cli/optimize-images.js --watch
 
   # Process with Git LFS support
-  node scripts/optimize-images.js --pull-lfs
+  node src/cli/optimize-images.js --pull-lfs
 
   # Quiet mode with error handling
-  node scripts/optimize-images.js --quiet --continue-on-error
+  node src/cli/optimize-images.js --quiet --continue-on-error
 `;
   }
 }

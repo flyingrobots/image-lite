@@ -1,9 +1,9 @@
-const ImageOptimizer = require('../../src/core/image-optimizer');
+const ImageLite = require('../../src/core/image-lite');
 const fs = require('fs').promises;
 const path = require('path');
 const os = require('os');
 
-describe('ImageOptimizer', () => {
+describe('ImageLite', () => {
   let tempDir;
   let inputDir;
   let outputDir;
@@ -14,7 +14,7 @@ describe('ImageOptimizer', () => {
 
   beforeEach(async () => {
     // Create temporary directories for testing
-    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'image-optimizer-test-'));
+    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'image-lite-test-'));
     inputDir = path.join(tempDir, 'input');
     outputDir = path.join(tempDir, 'output');
     
@@ -146,7 +146,7 @@ describe('ImageOptimizer', () => {
       ...testDependencies
     };
     
-    optimizer = new ImageOptimizer(config);
+    optimizer = new ImageLite(config);
   });
 
   afterEach(async () => {

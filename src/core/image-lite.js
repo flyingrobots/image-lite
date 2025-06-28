@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs').promises;
 
-class ImageOptimizer {
+class ImageLite {
   constructor(config = {}) {
     // If config is passed directly, use it
     if (config.formats || config.quality || config.outputDir) {
@@ -216,4 +216,4 @@ class ImageOptimizer {
   }
 }
 
-module.exports = ImageOptimizer;
+module.exports = ImageLite;

@@ -64,7 +64,7 @@ describe('Error Recovery E2E', () => {
       expect(files).not.toContain('z-corrupted.webp');
       
       // Check error log exists
-      const errorLogExists = await fs.access('image-optimization-errors.log')
+      const errorLogExists = await fs.access('image-lite-errors.log')
         .then(() => true)
         .catch(() => false);
       expect(errorLogExists).toBe(true);
@@ -149,7 +149,7 @@ describe('Error Recovery E2E', () => {
           }
         };
         
-        await fs.writeFile('.image-optimization-state.json', JSON.stringify(stateData, null, 2));
+        await fs.writeFile('.image-lite-state.json', JSON.stringify(stateData, null, 2));
         
         // Resume processing
         let resumeResult;
@@ -178,7 +178,7 @@ describe('Error Recovery E2E', () => {
     it('should create detailed error log', async () => {
       execSync(`node ${scriptPath} --continue-on-error`, { encoding: 'utf8' });
       
-      const errorLog = await fs.readFile('image-optimization-errors.log', 'utf8');
+      const errorLog = await fs.readFile('image-lite-errors.log', 'utf8');
       const errors = errorLog.trim().split('\n').map(line => JSON.parse(line));
       
       expect(errors.length).toBeGreaterThan(0);

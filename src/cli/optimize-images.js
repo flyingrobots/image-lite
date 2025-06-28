@@ -9,11 +9,11 @@ const minimatch = require('minimatch');
 const { execSync } = require('child_process');
 
 // App imports
-const ImageOptimizerApp = require('../app');
+const ImageLiteApp = require('../app');
 const CliParser = require('./cli-parser');
 
 // Core imports
-const ImageOptimizer = require('../core/image-optimizer');
+const ImageLite = require('../core/image-lite');
 const ImageProcessor = require('../core/image-processor');
 const ProcessingConfigGenerator = require('../core/processing-config-generator');
 const QualityRulesEngine = require('../core/quality-rules-engine');
@@ -101,7 +101,7 @@ async function main() {
     
     // Create image processor and optimizer
     const imageProcessor = new ImageProcessor(sharp, config);
-    const optimizer = new ImageOptimizer({
+    const optimizer = new ImageLite({
       ...config,
       gitLfsDetector,
       gitLfsPuller,
@@ -114,7 +114,7 @@ async function main() {
     });
     
     // Create application
-    const app = new ImageOptimizerApp({
+    const app = new ImageLiteApp({
       config,
       progressManager,
       errorRecoveryManager,
@@ -144,7 +144,7 @@ async function main() {
     }
     
   } catch (error) {
-    process.stderr.write(`Failed to run image optimizer: ${error}\n`);
+    process.stderr.write(`Failed to run image-lite: ${error}\n`);
     process.exit(1);
   }
 }

@@ -161,7 +161,7 @@ describe('Progress Bar E2E', () => {
           outputDir: 'optimized'
         }
       };
-      await fs.writeFile('.image-optimization-state.json', JSON.stringify(stateData, null, 2));
+      await fs.writeFile('.image-lite-state.json', JSON.stringify(stateData, null, 2));
       
       // Process first 3 files manually to match state
       for (let i = 0; i < 3; i++) {
