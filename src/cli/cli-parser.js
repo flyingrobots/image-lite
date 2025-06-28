@@ -38,7 +38,7 @@ class CliParser {
     return `
 Image Optimization Tool
 
-Usage: node scripts/optimize-images.js [options]
+Usage: node src/cli/optimize-images.js [options]
 
 Options:
   --force              Force reprocess all images, ignoring timestamps
@@ -55,13 +55,13 @@ Options:
 
 Examples:
   # Process all new/modified images
-  node scripts/optimize-images.js
+  node src/cli/optimize-images.js
 
   # Force reprocess all images
-  node scripts/optimize-images.js --force
+  node src/cli/optimize-images.js --force
 
   # Watch for changes
-  node scripts/optimize-images.js --watch
+  node src/cli/optimize-images.js --watch
 
   # Process with Git LFS support
   node scripts/optimize-images.js --pull-lfs

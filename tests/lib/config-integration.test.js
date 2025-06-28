@@ -1,7 +1,7 @@
 const fs = require('fs').promises;
 const path = require('path');
 const os = require('os');
-const ConfigLoader = require('../../src/config-loader');
+const ConfigLoader = require('../../src/config/config-loader');
 
 describe('Configuration Integration', () => {
   let tempDir;

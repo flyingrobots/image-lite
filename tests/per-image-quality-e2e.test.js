@@ -6,7 +6,7 @@ const sharp = require('sharp');
 
 describe('Per-Image Quality E2E', () => {
   let testDir;
-  const scriptPath = path.join(__dirname, '..', 'scripts', 'optimize-images.js');
+  const scriptPath = path.join(__dirname, '..', 'src/cli/optimize-images.js');
   
   // Helper function to create a complex test image that shows quality differences
   async function createTestImage() {

@@ -1,4 +1,4 @@
-const OutputPathGenerator = require('../../src/output-path-generator');
+const OutputPathGenerator = require('../../src/utils/output-path-generator');
 
 describe('OutputPathGenerator', () => {
   let generator;

@@ -1,4 +1,4 @@
-const ProgressManager = require('../../src/progress-manager');
+const ProgressManager = require('../../src/utils/progress-manager');
 
 describe('ProgressManager', () => {
   let progressManager;

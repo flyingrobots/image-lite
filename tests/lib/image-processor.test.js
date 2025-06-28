@@ -1,4 +1,4 @@
-const ImageProcessor = require('../../src/image-processor');
+const ImageProcessor = require('../../src/core/image-processor');
 
 describe('ImageProcessor', () => {
   let processor;

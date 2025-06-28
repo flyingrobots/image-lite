@@ -1,4 +1,4 @@
-const GitLfsPuller = require('../../src/git-lfs-puller');
+const GitLfsPuller = require('../../src/git/git-lfs-puller');
 
 describe('GitLfsPuller', () => {
   let puller;

@@ -43,7 +43,7 @@ async function main() {
 
     // Show help if requested
     if (cliParser.hasFlag('--help') || cliParser.hasFlag('-h')) {
-      console.log(CliParser.getHelpText());
+      process.stdout.write(CliParser.getHelpText() + '\n');
       process.exit(0);
     }
 
@@ -144,13 +144,16 @@ async function main() {
     }
     
   } catch (error) {
-    console.error('Failed to run image optimizer:', error);
+    process.stderr.write(`Failed to run image optimizer: ${error}\n`);
     process.exit(1);
   }
 }
 
 if (require.main === module) {
-  main().catch(console.error);
+  main().catch(err => {
+    process.stderr.write(`${err}\n`);
+    process.exit(1);
+  });
 }
 
 module.exports = { main };

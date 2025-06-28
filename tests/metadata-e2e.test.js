@@ -6,7 +6,7 @@ const sharp = require('sharp');
 
 describe('Metadata Preservation E2E', () => {
   let testDir;
-  const scriptPath = path.join(__dirname, '../scripts/optimize-images.js');
+  const scriptPath = path.join(__dirname, '../src/cli/optimize-images.js');
   
   beforeEach(async () => {
     testDir = path.join(os.tmpdir(), `metadata-e2e-${Date.now()}`);

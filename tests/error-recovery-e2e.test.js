@@ -5,7 +5,7 @@ const { execSync } = require('child_process');
 
 describe('Error Recovery E2E', () => {
   let testDir;
-  const scriptPath = path.join(__dirname, '..', 'scripts', 'optimize-images.js');
+  const scriptPath = path.join(__dirname, '..', 'src', 'cli', 'optimize-images.js');
   
   beforeEach(async () => {
     testDir = path.join(os.tmpdir(), `error-recovery-e2e-${Date.now()}`);

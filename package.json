@@ -20,23 +20,23 @@
     "docker:build": "bash scripts/docker-build.sh",
     "docker:rebuild": "docker compose build --no-cache",
     "docker:clean": "docker compose down -v && docker system prune -f",
-    "_docker:lint": "eslint src/ scripts/ tests/",
-    "_docker:lint:fix": "eslint src/ scripts/ tests/ --fix",
+    "_docker:lint": "eslint src/ tests/",
+    "_docker:lint:fix": "eslint src/ tests/ --fix",
     "_docker:test": "jest",
     "_docker:test:coverage": "jest --coverage --coverageReporters=json-summary --coverageReporters=text",
     "_docker:test:watch": "jest --watch"
   },
   "keywords": ["image", "optimization", "sharp", "batch", "processing", "webp", "avif"],
-  "author": "James",
+  "author": "J Kirby Ross <james@flyingrobots.dev>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/james/image-lite.git"
+    "url": "git+https://github.com/flyingrobots/image-lite.git"
   },
   "bugs": {
-    "url": "https://github.com/james/image-lite/issues"
+    "url": "https://github.com/flyingrobots/image-lite/issues"
   },
-  "homepage": "https://github.com/james/image-lite#readme",
+  "homepage": "https://github.com/flyingrobots/image-lite#readme",
   "dependencies": {
     "ansi-colors": "^4.1.3",
     "chokidar": "^4.0.3",

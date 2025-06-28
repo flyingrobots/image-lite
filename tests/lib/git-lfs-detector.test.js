@@ -1,4 +1,4 @@
-const GitLfsDetector = require('../../src/git-lfs-detector');
+const GitLfsDetector = require('../../src/git/git-lfs-detector');
 
 describe('GitLfsDetector', () => {
   let detector;

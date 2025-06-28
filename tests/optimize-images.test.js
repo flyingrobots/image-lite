@@ -8,7 +8,7 @@ describe('optimize-images.js', () => {
   const testDir = path.join(os.tmpdir(), `image-dump-test-${Date.now()}`);
   const inputDir = path.join(testDir, 'original');
   const outputDir = path.join(testDir, 'optimized');
-  const scriptPath = path.join(__dirname, '../scripts/optimize-images.js');
+  const scriptPath = path.join(__dirname, '../src/cli/optimize-images.js');
 
   beforeEach(async () => {
     // Clean up test directories

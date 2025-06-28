@@ -25,7 +25,7 @@ services:
       - ./.git:/app/.git${GIT_MOUNT_MODE:-:ro}  # Default to read-only, but allow read-write for LFS
       - ./scripts:/app/scripts:ro  # Allow live reload of scripts
       - ./src:/app/src:ro          # Allow live reload of source
-    command: node scripts/optimize-images.js ${OPTIMIZE_FLAGS}
+    command: node src/cli/optimize-images.js ${OPTIMIZE_FLAGS}
     environment:
       - NODE_ENV=${NODE_ENV:-production}
     stdin_open: true
