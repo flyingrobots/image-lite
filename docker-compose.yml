@@ -1,0 +1,83 @@
+services:
+  # Linting service
+  lint:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    volumes:
+      - ./scripts:/app/scripts${LINT_MOUNT_MODE:-:ro}
+      - ./src:/app/src${LINT_MOUNT_MODE:-:ro}
+      - ./tests:/app/tests${LINT_MOUNT_MODE:-:ro}
+    command: npm run ${LINT_COMMAND:-_docker:lint}
+    environment:
+      - NODE_ENV=development
+
+  # Main service for running image optimization with configurable options
+  optimize:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    volumes:
+      - ./original:/app/original:ro
+      - ./optimized:/app/optimized
+      - ./.git:/app/.git${GIT_MOUNT_MODE:-:ro}  # Default to read-only, but allow read-write for LFS
+      - ./scripts:/app/scripts:ro  # Allow live reload of scripts
+      - ./src:/app/src:ro          # Allow live reload of source
+    command: node scripts/optimize-images.js ${OPTIMIZE_FLAGS}
+    environment:
+      - NODE_ENV=${NODE_ENV:-production}
+    stdin_open: true
+    tty: true
+
+  # Service for running tests with configurable test command
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    volumes:
+      - ./scripts:/app/scripts${TEST_MOUNT_MODE:-:ro}
+      - ./src:/app/src${TEST_MOUNT_MODE:-:ro}
+      - ./tests:/app/tests${TEST_MOUNT_MODE:-:ro}
+      - ./.github:/app/.github:ro
+      - ./coverage:/app/coverage
+      - ./package.json:/app/package.json${TEST_MOUNT_MODE:-:ro}
+      - ./jest.config.js:/app/jest.config.js${TEST_MOUNT_MODE:-:ro}
+    command: npm run ${TEST_COMMAND:-_docker:test}
+    environment:
+      - NODE_ENV=test
+
+  # Legacy service aliases for backwards compatibility
+  optimize-force:
+    extends: optimize
+    environment:
+      - OPTIMIZE_FLAGS=--force
+      - NODE_ENV=${NODE_ENV:-production}
+
+  optimize-lfs:
+    extends: optimize
+    environment:
+      - OPTIMIZE_FLAGS=--pull-lfs
+      - GIT_MOUNT_MODE=  # Empty means read-write
+      - NODE_ENV=${NODE_ENV:-production}
+
+  optimize-watch:
+    extends: optimize
+    environment:
+      - OPTIMIZE_FLAGS=--watch
+      - NODE_ENV=${NODE_ENV:-production}
+
+  test-coverage:
+    extends: test
+    environment:
+      - TEST_COMMAND=_docker:test:coverage
+      - NODE_ENV=test
+
+  test-watch:
+    extends: test
+    environment:
+      - TEST_COMMAND=_docker:test:watch
+      - TEST_MOUNT_MODE=  # Empty means read-write for watch mode
+      - NODE_ENV=test

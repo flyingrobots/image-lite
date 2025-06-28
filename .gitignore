@@ -1,0 +1,107 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+*.code-workspace
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+junit.xml
+test-results/
+screenshots/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+.tmp/
+.temp/
+.parcel-cache/
+
+# Temporary test files
+original/test-*.png
+original/test-*.jpg
+optimized/test-*
+test-tmp/
+test-quality/
+
+# Backup files
+*.bak
+*.backup
+*_old
+
+# IDE files
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+
+# Claude Code
+.claude/
+CLAUDE.md
+
+# Package manager files
+# Note: package-lock.json should be committed!
+yarn.lock
+pnpm-lock.yaml
+
+# Docker volumes (local testing)
+.docker-volumes/
+
+# Local config overrides
+.imagerc.local
+config.local.json
+
+# State files
+.image-optimization-state.json
+.image-optimization-errors.log
+.docker-build-hash
+
+# Performance reports
+.lighthouseci/
+performance-reports/
+
+# Vim swap files
+*.swp
+*.swo
+*~
+
+# original images
+original/
