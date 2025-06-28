@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./image-lite.webp" alt="image-lite logo">
+  <img src="./image-lite.webp" alt="image-lite logo" width="300">
 </div>
 
 # image-lite
