@@ -2,7 +2,7 @@
   "name": "image-lite",
   "version": "0.1.0",
   "description": "High-performance batch image optimization with Sharp",
-  "main": "src/app.js",
+  "main": "src/index.js",
   "bin": {
     "image-lite": "./src/cli/optimize-images.js"
   },
